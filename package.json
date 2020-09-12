@@ -1,0 +1,53 @@
+{
+  "name": "base-node",
+  "version": "0.1.0-beta",
+  "description": "Basic node api",
+  "main": "src/app.js",
+  "author": "Matheus Wells",
+  "license": "MIT ",
+  "scripts": {
+    "start": "node app.js",
+    "keep": "cross-env PORT=85 nodemon app.js --ignore __tests__ --ext hbs",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "pretest": "cross-env NODE_ENV=test sequelize db:migrate",
+    "test": "cross-env NODE_ENV=test jest",
+    "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.0",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "factory-girl": "^5.0.4",
+    "faker": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "path": "^0.12.7",
+    "pg": "^8.3.3",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-wesbos": "0.0.23",
+    "eslint-plugin-html": "6.0.3",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react-hooks": "^1.4.0",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "prettier": "^1.16.4",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.0",
+    "supertest": "^4.0.2"
+  }
+}
