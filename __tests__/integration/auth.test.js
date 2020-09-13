@@ -1,4 +1,5 @@
 const request = require('supertest')
+const { password } = require('../../src/config/database')
 const server = require('../../src/server')
 const factory = require('../factories/user_factory')
 const truncate = require('../utils/truncate')
@@ -123,5 +124,27 @@ describe('Authentication', () => {
       })
 
     expect(response.status).toBe(401) // Token invalid
+  })
+
+  it('should create user when register with valid credentials', async () => {
+    const response = await request(server)
+      .post('/auth/register')
+      .send({
+        name: 'User',
+        email: 'user@email.com',
+        password: '1asdas1da5sd'
+      })
+    expect(response.body.user.email).toBe('user@email.com')
+  })
+  it('should not create user when register with incomplete credentials', async () => {
+    const response = await request(server)
+      .post('/auth/register')
+      .send({
+        name: 'User'
+        // email: 'user@email.com',
+        // password: '1asdas1da5sd'
+      })
+
+    expect(response.body.message).toBe('incomplete credentials')
   })
 })

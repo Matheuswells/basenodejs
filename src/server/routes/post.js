@@ -9,6 +9,4 @@ router.get('/', (req, res) => {
   res.sendStatus(200)
 })
 
-router.post('/authenticate', AuthController.store)
-
 module.exports = server => server.use('/post', router)

@@ -5,7 +5,12 @@ module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization
 
   if (!authHeader)
-    return res.status(401).json({ message: 'Token not provided' })
+    return (
+      res
+        .status(401)
+        // .redirect('/login')
+        .json({ message: 'Token not provided' })
+    )
 
   const parts = authHeader.split(' ')
 

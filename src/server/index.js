@@ -3,6 +3,9 @@ require('dotenv').config({
 })
 const express = require('express')
 const handlebars = require('express-handlebars')
+const session = require('express-session')
+const flash = require('connect-flash')
+const sessionMiddleware = require('./middlewares/session')
 
 const server = express()
 
@@ -25,8 +28,19 @@ class ServerController {
       })
     )
 
+    this.server.use(
+      session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true
+      })
+    )
+    this.server.use(flash())
     this.server.use(express.json())
+    this.server.use(express.urlencoded({ extended: false }))
     this.server.use(express.static('public'))
+
+    this.server.use(sessionMiddleware)
   }
 
   routes() {

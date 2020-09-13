@@ -1,11 +1,9 @@
 const router = require('express').Router()
+const { User } = require('../models')
 const AuthController = require('../controllers/AuthController')
 
-router.get('/register', (req, res) => {
-  res.status(200).send('register route')
-})
-
-router.post('/authenticate', AuthController.store)
+router.post('/authenticate', AuthController.login)
+router.post('/register', AuthController.register)
 
 router.get('/', (req, res) => {
   res.sendStatus(302)
