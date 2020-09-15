@@ -1,25 +1,21 @@
 # Base Node API
 
- Basic node api created to help programing students to explore the features of rest api.
-
-
+This project consists of a Node.js based platform created to help programing students to explore the features of rest API's, and a starting point to more complex projects.
 
  ## **Running this project**
 
- To run this project you go need to install [Node.js](nodejs.org), after installation go to the project's directory by terminal and use the command below
-    
+ To run this project you go need to install some dependencies:
+ - [Node.js](nodejs.org),
+ - Instance of [PostgreSQL12](https://www.postgresql.org) database Running
+
+  After installation go to the project's directory by terminal and use the command below
+
     > npm install && npm start
 
- ### **Having problems?**
- 
- Follow the most common problems
- 
+   yarn version
 
-> npm command not found
-
- Solution: *Make sure you have the node executable in your path enviroment*
+    > yarn && yarn start
 
 
  ## **Routes documenttion**
-
- table here
+ _In development...._
