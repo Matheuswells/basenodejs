@@ -14,7 +14,10 @@ class AuthController {
       return res.status(401).json({ message: 'Wrong password' })
     }
     delete user.dataValues.password_hash
-    return res.json({ user: user.dataValues, token: user.generateToken() })
+    const token = user.generateToken()
+    res.cookie('tapp', token)
+    return res.json({ user: user.dataValues, token })
+    // return res.json({ user: user.dataValues, token: user.generateToken() })
   }
 
   async register(req, res) {

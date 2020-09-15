@@ -15,9 +15,9 @@ describe('Access', () => {
     const response = await request(server).get('/register')
     expect(response.status).toBe(200)
   })
-  it('should be able to access /posts page', async () => {
+  it('should not be able to access /posts page without authentication', async () => {
     const response = await request(server).get('/posts')
-    expect(response.status).toBe(200)
+    expect(response.status).toBe(401)
   })
   it('should be able to access /login page without authentication', async () => {
     const response = await request(server).get('/login')

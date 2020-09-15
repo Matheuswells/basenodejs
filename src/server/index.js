@@ -5,6 +5,7 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const session = require('express-session')
 const flash = require('connect-flash')
+const cookieParser = require('cookie-parser')
 const sessionMiddleware = require('./middlewares/session')
 
 const server = express()
@@ -35,11 +36,11 @@ class ServerController {
         saveUninitialized: true
       })
     )
+    this.server.use(cookieParser())
     this.server.use(flash())
     this.server.use(express.json())
     this.server.use(express.urlencoded({ extended: false }))
     this.server.use(express.static('public'))
-
     this.server.use(sessionMiddleware)
   }
 
