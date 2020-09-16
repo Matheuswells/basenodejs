@@ -4,7 +4,7 @@ const { promisify } = require('util')
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization
   const { cookies } = req
-  console.log(cookies.tapp) // cookies are undefined in tests!!!
+  // console.log(cookies.tapp) // cookies are undefined in tests!!!
 
   if (!authHeader)
     return (

@@ -6,7 +6,9 @@
   "author": "Matheus Wells",
   "license": "MIT ",
   "scripts": {
+    "prestart": "cross-env sequelize db:migrate",
     "start": "node app.js",
+    "preskeep": "cross-env sequelize db:migrate",
     "keep": "cross-env PORT=85 nodemon app.js --ignore __tests__ --ext hbs,js,jsx,css,json",
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo",
